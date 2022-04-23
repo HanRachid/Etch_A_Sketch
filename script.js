@@ -27,7 +27,6 @@ function addOutline(){
     const children = Array.from(grid.children);
     children.forEach((element) =>{ 
         element.style.outlineStyle = "solid";
-        
     });
     isGridOn = true;
 }
