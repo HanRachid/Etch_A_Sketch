@@ -67,6 +67,21 @@ function createGrid(size){
             
         });
 
+        element.addEventListener('mousedown', (e) => {
+           
+            console.log(gridColor);
+            removeOutline();
+            element.style.backgroundColor=gridColor;
+
+            if (e.buttons==2) {
+                
+                element.style.backgroundColor='';
+            }
+            
+
+            
+        });
+
     });
 
     
