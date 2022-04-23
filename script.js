@@ -102,13 +102,34 @@ function createGrid(size){
 }
 createGrid(size);
 
+function getScreenShot(){
+    let c = document.querySelector('.grid'); // or document.getElementById('canvas');
+    html2canvas(c).then((canvas)=>{
+      let t = canvas.toDataURL().replace("data:image/png;base64,", "");
+      this.downloadBase64File('image/png',t,'sketch');
+    })
+  }
 
+function downloadBase64File(contentType, base64Data, fileName) {
+  const linkSource = `data:${contentType};base64,${base64Data}`;
+  const downloadLink = document.createElement("a");
+  downloadLink.href = linkSource;
+  downloadLink.download = fileName;
+  downloadLink.click();
+}
 
+const downloadeur = document.querySelector('#downloader');
 
+downloadeur.addEventListener('click', (e)=> {
+
+    getScreenShot();
+
+});
 slider.addEventListener('change', (e) => {
     size = slider.value;
     deleteGrid();
     
+    console.table(e);
 });
 
 
