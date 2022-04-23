@@ -20,6 +20,15 @@ function fillGrid(color=""){
     });
 }
 
+function removeOutline(){
+    const grid = document.querySelector(".grid");
+    const children = Array.from(grid.children);
+    children.forEach((element) =>{ 
+        element.style.outlineStyle = "none";
+    });
+}
+
+
 function createGrid(size){
     let square = (100/size)+'%';
     const grid = document.querySelector(".grid");
@@ -46,9 +55,11 @@ function createGrid(size){
            
             if (e.buttons==1) {
                 console.log(gridColor);
+                removeOutline();
                 element.style.backgroundColor=gridColor;
+
             } else if (e.buttons==2) {
-                console.log('c le klik drwa');
+                
                 element.style.backgroundColor='';
             }
             
