@@ -12,6 +12,7 @@ function deleteGrid(){
     createGrid(size);
 }    
 
+
 function fillGrid(color=""){
     const grid = document.querySelector(".grid");
     const children = Array.from(grid.children);
@@ -20,12 +21,24 @@ function fillGrid(color=""){
     });
 }
 
+let isGridOn = true;
+function addOutline(){
+    const grid = document.querySelector(".grid");
+    const children = Array.from(grid.children);
+    children.forEach((element) =>{ 
+        element.style.outlineStyle = "solid";
+        
+    });
+    isGridOn = true;
+}
+
 function removeOutline(){
     const grid = document.querySelector(".grid");
     const children = Array.from(grid.children);
     children.forEach((element) =>{ 
         element.style.outlineStyle = "none";
     });
+    isGridOn = false;
 }
 
 
@@ -55,7 +68,7 @@ function createGrid(size){
            
             if (e.buttons==1) {
                 console.log(gridColor);
-                removeOutline();
+                
                 element.style.backgroundColor=gridColor;
 
             } else if (e.buttons==2) {
@@ -69,8 +82,7 @@ function createGrid(size){
 
         element.addEventListener('mousedown', (e) => {
            
-            console.log(gridColor);
-            removeOutline();
+             
             element.style.backgroundColor=gridColor;
 
             if (e.buttons==2) {
@@ -105,6 +117,18 @@ slider.addEventListener('change', (e) => {
 choiseur.addEventListener('change', (e)=> {
     gridColor = choiseur.value;
     
+});
+
+const grider = document.querySelector("#grider");
+
+grider.addEventListener('click' , (e) => {
+    console.log("lol");
+    if (isGridOn){
+        removeOutline();
+    }else{
+        addOutline();
+    }
+
 });
 
 const fill = document.querySelector("#filler");

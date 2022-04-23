@@ -25,6 +25,10 @@ body{
     
 }
 
+.boutons{
+  padding: 10px;
+
+}
 .cell{
     outline: solid rgb(203, 211, 203) 1px;
     
