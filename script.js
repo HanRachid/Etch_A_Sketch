@@ -30,6 +30,7 @@ function createGrid(size){
             cell.className = "cell";
             cell.style.width = square;
             cell.style.height = square;
+            cell.ondragstart = function () { return false; };
             grid.appendChild(cell);
 
         }
